@@ -6,8 +6,8 @@ import s from "@/components/case/case.module.css";
 
 export const metadata: Metadata = {
   title: "NDA social app — Bohdan Chuprina",
-  description: "Adding scrapbooking to a photo-widget social app without a new tab. Concept; the product name is withheld.",
-  openGraph: { title: "NDA social app — Bohdan Chuprina", description: "Adding scrapbooking to a photo-widget social app without a new tab. Concept; the product name is withheld.", images: [{ url: "/og/social-app.jpg", width: 1200, height: 630 }] },
+  description: "Adding scrapbooking to a photo-widget social app without a new tab or button.",
+  openGraph: { title: "NDA social app — Bohdan Chuprina", description: "Adding scrapbooking to a photo-widget social app without a new tab or button.", images: [{ url: "/og/social-app.jpg", width: 1200, height: 630 }] },
 };
 
 const I = "/img/social-app/";
@@ -43,14 +43,13 @@ export default function SocialApp() {
       <CaseHero
         title={<>NDA <span className="serif accent">social app</span></>}
         subtitle="Adding scrapbooking to a photo-widget app"
-        badge="Concept · product name withheld"
         cover={`${I}cover.webp`} coverAlt="Social app concept: page background editor, page on the home-screen widget, Memories with Pages" coverW={1280} coverH={640}
       />
       <Overview meta={[
         ["Role", "Product designer (solo)"],
         ["Timeline", "5–6 days"],
         ["Platform", "iOS · Mobile"],
-        ["Scope", "Unsolicited feature concept"],
+        ["Scope", "Feature concept"],
       ]} />
 
       <CaseBody nav={nav}>
