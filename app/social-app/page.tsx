@@ -41,7 +41,7 @@ export default function SocialApp() {
   return (
     <main>
       <CaseHero
-        title={<>NDA <span className="serif">social app</span></>}
+        title={<>NDA <span className="serif accent">social app</span></>}
         subtitle="Adding scrapbooking to a photo-widget app"
         badge="Concept · product name withheld"
         cover={`${I}cover.webp`} coverAlt="Social app concept: page background editor, page on the home-screen widget, Memories with Pages" coverW={1280} coverH={640}
