@@ -5,12 +5,12 @@ import { CaseHero, Overview, CaseBody, Section, NextCase, P, Accent, Rows, Label
 import s from "@/components/case/case.module.css";
 
 export const metadata: Metadata = {
-  title: "Locket concept — Bohdan Chuprina",
-  description: "Adding scrapbooking to a photo-widget app without a new tab. Unsolicited concept, not affiliated with Locket.",
-  openGraph: { title: "Locket concept — Bohdan Chuprina", description: "Adding scrapbooking to a photo-widget app without a new tab. Unsolicited concept, not affiliated with Locket.", images: [{ url: "/og/locket.jpg", width: 1200, height: 630 }] },
+  title: "NDA social app — Bohdan Chuprina",
+  description: "Adding scrapbooking to a photo-widget social app without a new tab. Concept; the product name is withheld.",
+  openGraph: { title: "NDA social app — Bohdan Chuprina", description: "Adding scrapbooking to a photo-widget social app without a new tab. Concept; the product name is withheld.", images: [{ url: "/og/social-app.jpg", width: 1200, height: 630 }] },
 };
 
-const I = "/img/locket/";
+const I = "/img/social-app/";
 
 const nav = [
   { id: "tldr", title: "TL;DR" },
@@ -37,14 +37,14 @@ const flows = [
     alt: "Tap the widget, History, save it, Memories Pages tab or Download to Photos, Saved." },
 ];
 
-export default function Locket() {
+export default function SocialApp() {
   return (
     <main>
       <CaseHero
-        title={<>Locket <span className="serif">concept</span></>}
+        title={<>NDA <span className="serif">social app</span></>}
         subtitle="Adding scrapbooking to a photo-widget app"
-        badge="Unsolicited concept · not affiliated with Locket"
-        cover={`${I}cover.webp`} coverAlt="Locket concept: page background editor, page on the home-screen widget, Memories with Pages" coverW={1280} coverH={640}
+        badge="Concept · product name withheld"
+        cover={`${I}cover.webp`} coverAlt="Social app concept: page background editor, page on the home-screen widget, Memories with Pages" coverW={1280} coverH={640}
       />
       <Overview meta={[
         ["Role", "Product designer (solo)"],
@@ -56,27 +56,27 @@ export default function Locket() {
       <CaseBody nav={nav}>
         <S id="tldr">
           <P size="lead">
-            Locket is built around seconds: snap a photo, send it, and it lands on a friend&apos;s home screen. Scrapbooking takes minutes. In this concept, it fits in without a new tab or a new button, because every surface in Locket is a 1:1 square — so <Accent>a scrapbook page is just another Locket.</Accent>
+            The app is built around seconds: snap a photo, send it, and it lands on a friend&apos;s home screen. Scrapbooking takes minutes. In this concept, it fits in without a new tab or a new button, because every surface in the app is a 1:1 square — so <Accent>a scrapbook page is just another photo.</Accent>
           </P>
         </S>
 
         <S id="context">
-          <P>A concept feature for Locket: users build collage pages from their own photos, cut objects out, decorate the page and send it to friends. The constraint that shaped everything: it&apos;s a secondary feature, and the app can&apos;t get heavier because of it.</P>
-          <P>I did it solo: an audit of the current app, competitor analysis, user flows, wireframes and hi-fi screens on components rebuilt in Locket&apos;s style.</P>
+          <P>A concept feature for a photo-widget social app: users build collage pages from their own photos, cut objects out, decorate the page and send it to friends. The constraint that shaped everything: it&apos;s a secondary feature, and the app can&apos;t get heavier because of it.</P>
+          <P>I did it solo: an audit of the current app, competitor analysis, user flows, wireframes and hi-fi screens on components rebuilt in the app&apos;s style.</P>
         </S>
 
         <S id="problem">
-          <P>People use Locket because it&apos;s fast. You take a photo, send it, and a second later it&apos;s on a friend&apos;s widget. Scrapbooking works the other way around: minutes of hands-on work. Drop a full collage editor into the app, and it starts competing with the one action Locket exists for.</P>
+          <P>People use the app because it&apos;s fast. You take a photo, send it, and a second later it&apos;s on a friend&apos;s widget. Scrapbooking works the other way around: minutes of hands-on work. Drop a full collage editor into the app, and it starts competing with the one action the app exists for.</P>
           <P>So before designing anything, I mapped the current app screen by screen and marked every place where a new entry point would pull attention away from the camera. Most of them would.</P>
-          <Figure src={`${I}audit.webp`} alt="Audit of the current Locket app: every screen, with possible entry points marked" w={856} h={719} caption="Audit of the current app · entry points marked" zoom />
+          <Figure src={`${I}audit.webp`} alt="Audit of the current app: every screen, with possible entry points marked" w={856} h={719} caption="Audit of the current app · entry points marked" zoom />
         </S>
 
         <S id="insight">
           <P size="big">A scrapbook page is <Accent>the same square as a photo.</Accent></P>
-          <P>The camera, the widget, History and Memories all live in the same 1:1 square. A scrapbook page uses the same canvas, so it needs no new screens or templates. It&apos;s sent from the same Send to screen, reaches the same friends and lands on the widget exactly like a regular Locket.</P>
+          <P>The camera, the widget, History and Memories all live in the same 1:1 square. A scrapbook page uses the same canvas, so it needs no new screens or templates. It&apos;s sent from the same Send to screen, reaches the same friends and lands on the widget exactly like a regular photo.</P>
           <P>Free-form and vertical pages, the way Canva and Zinnia do it, would have meant new display variants across the whole app, and none of them fits on a widget.</P>
           <Phones items={[
-            { src: `${I}widget-photo.webp`, alt: "A regular Locket photo on the home-screen widget", label: "Regular Locket on widget" },
+            { src: `${I}widget-photo.webp`, alt: "A regular photo on the home-screen widget", label: "Regular photo on widget" },
             { src: `${I}widget-page.webp`, alt: "A scrapbook page on the same widget", label: "Page on widget", accent: true },
           ]} />
         </S>
@@ -101,19 +101,19 @@ export default function Locket() {
             ["Trade-off", "Someone tapping the button out of habit lands in the editor instead of the captions sheet. That's why captions stay one swipe or one tool away."],
           ]} />
           <Phones items={[
-            { src: `${I}entry-camera.webp`, alt: "Locket camera", label: "Camera" },
+            { src: `${I}entry-camera.webp`, alt: "The app camera", label: "Camera" },
             { src: `${I}entry-send.webp`, alt: "Send to screen, Captions button now opens the editor", label: "Send to", accent: true },
             { src: `${I}entry-editor.webp`, alt: "Scrapbook editor", label: "Editor" },
           ]} />
         </S>
 
         <S id="tools">
-          <P>Collage apps put dozens of tools on one screen. Locket&apos;s whole interface is a couple of buttons, so I kept only what makes a page feel like a paper scrapbook. Each tool opens as a sheet above the canvas, so the page never leaves the screen.</P>
+          <P>Collage apps put dozens of tools on one screen. The app&apos;s whole interface is a couple of buttons, so I kept only what makes a page feel like a paper scrapbook. Each tool opens as a sheet above the canvas, so the page never leaves the screen.</P>
           <Rows items={[
-            ["Add", "pulls photos you've already taken in Locket or from your gallery."],
+            ["Add", "pulls photos you've already taken in the app or from your gallery."],
             ["Cutout", "cuts an object out of a photo with one tap."],
             ["Decor", "adds tape, paper scraps and stickers — the things that make it look handmade."],
-            ["Text", "uses Locket's own caption styles, plus a handwritten font."],
+            ["Text", "uses the app's own caption styles, plus a handwritten font."],
             ["Background", "sets the mood with paper texture, a color or your own photo."],
           ]} />
           <P>Layers, brushes and templates are a natural next step for people who love the feature. For a first version, they would have turned a quick page into a design tool.</P>
@@ -125,8 +125,8 @@ export default function Locket() {
         </S>
 
         <S id="sharing">
-          <P>A feed with followers would have turned Locket into Instagram, so pages travel the way photos already do. Send a page to All, and it lands on every friend&apos;s widget and in History on the home screen. Friends only, the 20-friend limit stays.</P>
-          <P>Pages also get a home in Memories: a new Pages tab, placed last after Rollcalls and Lockets so it doesn&apos;t shift tabs people already know. Drafts live there too, so you can start a page, leave, and finish it later.</P>
+          <P>A feed with followers would have turned the app into Instagram, so pages travel the way photos already do. Send a page to All, and it lands on every friend&apos;s widget and in History on the home screen. Friends only, the 20-friend limit stays.</P>
+          <P>Pages also get a home in Memories: a new Pages tab, placed last after the existing tabs so it doesn&apos;t shift tabs people already know. Drafts live there too, so you can start a page, leave, and finish it later.</P>
           <Phones items={[
             { src: `${I}share-memories.webp`, alt: "Memories with the new Pages tab", label: "Memories · Pages", accent: true },
             { src: `${I}share-drafts.webp`, alt: "Drafts with discard option", label: "Drafts / Discard" },

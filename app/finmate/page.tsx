@@ -155,7 +155,7 @@ export default function FinMate() {
         </S>
       </CaseBody>
 
-      <NextCase slug="locket" />
+      <NextCase slug="social-app" />
       <Footer n={null} />
     </main>
   );
