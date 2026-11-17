@@ -1,3 +1,8 @@
+@font-face{font-family:"Host Grotesk";font-weight:300;font-display:swap;src:url(/fonts/host-grotesk-latin-300-normal.woff2) format("woff2")}
+@font-face{font-family:"Host Grotesk";font-weight:400;font-display:swap;src:url(/fonts/host-grotesk-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"Host Grotesk";font-weight:500;font-display:swap;src:url(/fonts/host-grotesk-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:"Instrument Serif";font-style:italic;font-weight:400;font-display:swap;src:url(/fonts/instrument-serif-latin-400-italic.woff2) format("woff2")}
+@font-face{font-family:"Geist Mono";font-weight:400;font-display:swap;src:url(/fonts/geist-mono-latin-400-normal.woff2) format("woff2")}
 /* D2 design tokens — mirror of Figma variables and text styles */
 :root {
   --ink: #0a0a0a;
@@ -55,8 +60,9 @@ h1, h2, h3 { margin: 0; font-weight: inherit; }
 .wrap { max-width: var(--page-max); margin: 0 auto; padding: 0 var(--gutter); }
 .split { display: grid; grid-template-columns: var(--side) minmax(0, 1fr); }
 @media (max-width: 900px) { .split { grid-template-columns: 1fr; gap: 24px; } }
-.section { border-top: 1px solid var(--line); padding: 20px 0 120px; }
-@media (max-width: 900px) { .section { padding: 16px 0 72px; } }
+.section { padding-bottom: 120px; }
+.section > .split { border-top: 1px solid var(--line); padding-top: 20px; }
+@media (max-width: 900px) { .section { padding-bottom: 72px; } .section > .split { padding-top: 16px; } }
 .label { font-size: 14px; }
 .label b { font-family: var(--font-mono); font-weight: 400; color: var(--accent); margin-right: 10px; }
 

@@ -14,9 +14,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-        <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400&family=Host+Grotesk:wght@300;400;500&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet" />
+        <link rel="preload" href="/fonts/host-grotesk-latin-400-normal.woff2" as="font" type="font/woff2" crossOrigin="" />
       </head>
       <body>
         <TopBar />
