@@ -8,6 +8,7 @@ import s from "@/components/case/case.module.css";
 export const metadata: Metadata = {
   title: "JobsLab — Bohdan Chuprina",
   description: "Speeding up recruiters' daily work in an ATS. 18 of 28 proposed changes shipped.",
+  openGraph: { title: "JobsLab — Bohdan Chuprina", description: "Speeding up recruiters' daily work in an ATS. 18 of 28 proposed changes shipped.", images: [{ url: "/og/jobslab.jpg", width: 1200, height: 630 }] },
 };
 
 const I = "/img/jobslab/";

@@ -5,6 +5,7 @@ import { CaseHero, Overview, CaseBody, Section, NextCase, P, Accent, Rows, Label
 export const metadata: Metadata = {
   title: "Baby Sleep — Bohdan Chuprina",
   description: "Redesigning the paywall of an AI bedtime-story app. Paid conversion 1.4% → 11.7%.",
+  openGraph: { title: "Baby Sleep — Bohdan Chuprina", description: "Redesigning the paywall of an AI bedtime-story app. Paid conversion 1.4% → 11.7%.", images: [{ url: "/og/baby-sleep.jpg", width: 1200, height: 630 }] },
 };
 
 const I = "/img/babysleep/";

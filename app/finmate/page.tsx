@@ -9,6 +9,7 @@ import s from "@/components/case/case.module.css";
 export const metadata: Metadata = {
   title: "FinMate — Bohdan Chuprina",
   description: "Tracking cash in a bank-synced finance app. Concept, usability-tested.",
+  openGraph: { title: "FinMate — Bohdan Chuprina", description: "Tracking cash in a bank-synced finance app. Concept, usability-tested.", images: [{ url: "/og/finmate.jpg", width: 1200, height: 630 }] },
 };
 
 const I = "/img/finmate/";

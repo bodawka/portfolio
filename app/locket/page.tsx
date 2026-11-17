@@ -7,6 +7,7 @@ import s from "@/components/case/case.module.css";
 export const metadata: Metadata = {
   title: "Locket concept — Bohdan Chuprina",
   description: "Adding scrapbooking to a photo-widget app without a new tab. Unsolicited concept, not affiliated with Locket.",
+  openGraph: { title: "Locket concept — Bohdan Chuprina", description: "Adding scrapbooking to a photo-widget app without a new tab. Unsolicited concept, not affiliated with Locket.", images: [{ url: "/og/locket.jpg", width: 1200, height: 630 }] },
 };
 
 const I = "/img/locket/";
