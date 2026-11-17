@@ -6,13 +6,14 @@ import s from "./case.module.css";
 
 /* ---------- Page frame ---------- */
 
-export function CaseHero({ title, subtitle, cover, coverAlt, coverW, coverH }: { title: string; subtitle: string; cover: string; coverAlt: string; coverW: number; coverH: number }) {
+export function CaseHero({ title, subtitle, cover, coverAlt, coverW, coverH, badge }: { title: ReactNode; subtitle: string; badge?: string; cover: string; coverAlt: string; coverW: number; coverH: number }) {
   return (
     <>
       <header className={`wrap ${s.hero}`}>
         <Link href="/#work" className={`t-label muted ulink ${s.back}`}>← Work</Link>
         <h1 className="t-display-xl">{title}</h1>
         <p className="t-heading-m muted">{subtitle}</p>
+        {badge && <p className={`t-mono ${s.badge}`}><i aria-hidden />{badge}</p>}
       </header>
       <div className="wrap">
         <img className={s.cover} src={cover} alt={coverAlt} width={coverW} height={coverH} fetchPriority="high" />
@@ -108,10 +109,17 @@ export function Labeled({ items }: { items: [string, ReactNode][] }) {
   );
 }
 
-export function Figure({ src, alt, w, h, caption, frame, maxW }: { src: string; alt: string; w: number; h: number; caption?: string; frame?: boolean; maxW?: number }) {
+export function Figure({ src, alt, w, h, caption, frame, maxW, zoom }: { src: string; alt: string; w: number; h: number; caption?: string; frame?: boolean; maxW?: number; zoom?: boolean }) {
   return (
     <figure className={`${s.fig} reveal`} style={maxW ? { maxWidth: maxW } : undefined}>
-      <img src={src} alt={alt} width={w} height={h} loading="lazy" className={frame ? s.framed : undefined} />
+      {zoom ? (
+        <a href={src} target="_blank" rel="noreferrer" className={s.zoom} title="Open full size">
+          <img src={src} alt={alt} width={w} height={h} loading="lazy" className={frame ? s.framed : undefined} />
+          <span className="t-mono-cap">Open full size ↗</span>
+        </a>
+      ) : (
+        <img src={src} alt={alt} width={w} height={h} loading="lazy" className={frame ? s.framed : undefined} />
+      )}
       {caption && <figcaption className="t-mono-cap muted">{caption}</figcaption>}
     </figure>
   );

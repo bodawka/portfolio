@@ -3,6 +3,8 @@
 .hero { padding-top: 96px; padding-bottom: 64px; display: grid; gap: 16px; }
 .back { justify-self: start; margin-bottom: 24px; }
 .cover { width: 100%; border-radius: 4px; }
+.badge { justify-self: start; display: inline-flex; align-items: center; gap: 10px; margin-top: 16px; padding: 8px 14px; border: 1px solid var(--line); border-radius: 40px; color: var(--muted); }
+.badge i { width: 8px; height: 8px; background: var(--accent); }
 
 .overview { padding-top: 64px; }
 .meta { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin: 0; padding-bottom: 40px; border-bottom: 1px solid var(--line); }
@@ -140,4 +142,14 @@
   .screenGrid { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; margin: 0 calc(var(--gutter) * -1); padding: 8px var(--gutter) 12px; gap: 16px; }
   .screenGrid::-webkit-scrollbar { display: none; }
   .screen { flex: 0 0 44vw; scroll-snap-align: start; scroll-margin-left: var(--gutter); }
+}
+
+/* Zoomable figure */
+.zoom { position: relative; display: block; cursor: zoom-in; }
+.zoom span { position: absolute; right: 12px; bottom: 12px; padding: 6px 10px; border-radius: 20px; background: rgba(10,10,10,.75); color: #fff; opacity: 0; transition: opacity .2s var(--ease); }
+.zoom:hover span, .zoom:focus-visible span { opacity: 1; }
+@media (max-width: 900px) {
+  .zoom span { opacity: 1; right: 8px; bottom: 8px; }
+  .badge { border-radius: 12px; align-items: flex-start; }
+  .badge i { margin-top: 6px; flex: none; }
 }
