@@ -21,7 +21,7 @@ export function CaseHero({ title, subtitle, cover, coverAlt, coverW, coverH }: {
   );
 }
 
-export function Overview({ meta, numbers }: { meta: [string, string][]; numbers: { value: string; label: string; accent?: boolean }[] }) {
+export function Overview({ meta, numbers }: { meta: [string, string][]; numbers?: { value: string; label: string; accent?: boolean }[] }) {
   return (
     <section className={`wrap ${s.overview}`} aria-label="Overview">
       <dl className={s.meta}>
@@ -29,14 +29,14 @@ export function Overview({ meta, numbers }: { meta: [string, string][]; numbers:
           <div key={k}><dt className="t-small muted">{k}</dt><dd className="t-body-s">{v}</dd></div>
         ))}
       </dl>
-      <div className={s.numbers}>
+      {numbers && <div className={s.numbers}>
         {numbers.map((n) => (
           <div key={n.label} className="reveal">
             <p className={`t-display-l ${n.accent ? "accent" : ""}`}>{n.value}</p>
             <p className="t-caption muted">{n.label}</p>
           </div>
         ))}
-      </div>
+      </div>}
     </section>
   );
 }
@@ -174,11 +174,11 @@ export function Quote({ text, by }: { text: string; by: string }) {
 
 export type Phone = { src: string; alt: string; label?: string; accent?: boolean };
 /** Row of phone screens. Desktop: left-aligned row. Mobile: swipeable carousel. */
-export function Phones({ items, size = "m", note }: { items: Phone[]; size?: "s" | "m"; note?: string }) {
-  const w = size === "s" ? 160 : 226;
+export function Phones({ items, size = "m", note }: { items: Phone[]; size?: "s" | "s4" | "m"; note?: string }) {
+  const w = size === "s" ? 160 : size === "s4" ? 202 : 226;
   return (
     <figure className={`${s.phones} reveal`}>
-      <div className={s.phoneRow} style={{ ["--pw" as string]: `${w}px`, ["--pg" as string]: size === "s" ? "14px" : "24px" }}>
+      <div className={s.phoneRow} style={{ ["--pw" as string]: `${w}px`, ["--pg" as string]: size === "s" ? "14px" : size === "s4" ? "16px" : "24px" }}>
         {items.map((p) => (
           <div key={p.src} className={s.phone}>
             <img src={p.src} alt={p.alt} width={w} height={Math.round(w * 2.045)} loading="lazy" />
@@ -189,5 +189,47 @@ export function Phones({ items, size = "m", note }: { items: Phone[]; size?: "s"
       {items.length > 1 && <span className={`t-mono-cap muted ${s.swipe}`} aria-hidden>Swipe →</span>}
       {note && <figcaption className="t-caption muted">{note}</figcaption>}
     </figure>
+  );
+}
+
+/** Feature comparison with dot markers: yes ● / partial ○ / no —. */
+export type Mark = "yes" | "partial" | "no";
+export function CompareTable({ caption, cols, rows }: { caption: string; cols: string[]; rows: { feature: string; marks: Mark[]; gap?: string }[] }) {
+  const label = { yes: "Yes", partial: "Partial", no: "No" };
+  return (
+    <figure className={`${s.tableWrap} reveal`}>
+      <figcaption className="t-mono-cap muted">{caption}</figcaption>
+      <table className={s.compare}>
+        <thead><tr><th scope="col" className="t-mono-cap muted">Feature</th>{cols.map((c) => <th key={c} scope="col" className="t-body-s">{c}</th>)}</tr></thead>
+        <tbody>
+          {rows.map((r) => (
+            <tr key={r.feature} className={r.gap ? s.gapRow : undefined}>
+              <th scope="row" className="t-body-s">{r.feature}{r.gap && <span className={s.tag}>{r.gap}</span>}</th>
+              {r.marks.map((m, i) => (
+                <td key={i}><span className={`${s.mark} ${s[m]}`} role="img" aria-label={`${cols[i]}: ${label[m]}`} /></td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <p className={`t-mono-cap muted ${s.legend}`}><span className={`${s.mark} ${s.yes}`} /> Yes <span className={`${s.mark} ${s.partial}`} /> Partial <span className={`${s.mark} ${s.no}`} /> No</p>
+    </figure>
+  );
+}
+
+/** Screens of one journey: 4-column grid on desktop, swipeable carousel on mobile. */
+export function ScreenGrid({ items }: { items: { src: string; label: string }[] }) {
+  return (
+    <div>
+      <div className={s.screenGrid}>
+        {items.map((p) => (
+          <figure key={p.src} className={s.screen}>
+            <img src={p.src} alt={p.label} width={190} height={389} loading="lazy" />
+            <figcaption className="t-mono-cap muted">{p.label}</figcaption>
+          </figure>
+        ))}
+      </div>
+      <span className={`t-mono-cap muted ${s.swipe}`} aria-hidden>Swipe →</span>
+    </div>
   );
 }
