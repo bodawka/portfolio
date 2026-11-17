@@ -68,6 +68,7 @@
 .nextCard { display: grid; gap: 8px; }
 .nextCover { aspect-ratio: 856 / 440; overflow: hidden; border-radius: 4px; margin-bottom: 12px; background: var(--surface); }
 .nextCover img { width: 100%; height: 100%; object-fit: contain; transition: transform .6s var(--ease); }
+.nextWide img { object-fit: cover; }
 .nextCard:hover .nextCover img { transform: scale(1.02); }
 .nextTitle { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; }
 .arrow { display: inline-block; transition: transform .3s var(--ease); }
@@ -97,4 +98,16 @@
   .table td::before { content: attr(data-label) " · "; color: var(--muted); font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; }
   .next { padding-bottom: 72px; }
   .nextTitle { flex-direction: column; gap: 0; }
+}
+
+/* Phone rows */
+.phones { margin: 8px 0 0; display: grid; gap: 14px; }
+.phoneRow { display: flex; gap: var(--pg); }
+.phone { flex: 0 0 var(--pw); display: grid; gap: 10px; align-content: start; }
+.phone img { width: 100%; }
+@media (max-width: 900px) {
+  .phoneRow { overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; margin: 0 calc(var(--gutter) * -1); padding: 0 var(--gutter); gap: 16px; }
+  .phoneRow::-webkit-scrollbar { display: none; }
+  .phone { flex-basis: min(var(--pw), 58vw); scroll-snap-align: start; scroll-margin-left: var(--gutter); }
+  .phones .swipe { margin-top: -4px; }
 }

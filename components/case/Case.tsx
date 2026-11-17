@@ -66,7 +66,7 @@ export function NextCase({ slug }: { slug: string }) {
     <section className={`wrap split ${s.next}`}>
       <p className="t-label">Next case</p>
       <Link href={`/${c.slug}`} className={s.nextCard}>
-        <div className={s.nextCover} style={{ background: c.bg }}><img src={c.cover} alt={`${c.title} cover`} loading="lazy" /></div>
+        <div className={`${s.nextCover} ${c.wide ? s.nextWide : ""}`} style={{ background: c.bg }}><img src={c.wide ?? c.cover} alt={`${c.title} cover`} loading="lazy" /></div>
         <div className={s.nextTitle}>
           <span className="t-title">{c.title} <span className={s.arrow}>→</span></span>
           <span className="t-caption muted">{c.metric}</span>
@@ -169,5 +169,25 @@ export function Quote({ text, by }: { text: string; by: string }) {
       <p>{text}</p>
       <cite className="t-mono-cap muted">{by}</cite>
     </blockquote>
+  );
+}
+
+export type Phone = { src: string; alt: string; label?: string; accent?: boolean };
+/** Row of phone screens. Desktop: left-aligned row. Mobile: swipeable carousel. */
+export function Phones({ items, size = "m", note }: { items: Phone[]; size?: "s" | "m"; note?: string }) {
+  const w = size === "s" ? 160 : 226;
+  return (
+    <figure className={`${s.phones} reveal`}>
+      <div className={s.phoneRow} style={{ ["--pw" as string]: `${w}px`, ["--pg" as string]: size === "s" ? "14px" : "24px" }}>
+        {items.map((p) => (
+          <div key={p.src} className={s.phone}>
+            <img src={p.src} alt={p.alt} width={w} height={Math.round(w * 2.045)} loading="lazy" />
+            {p.label && <span className={`t-mono-cap ${p.accent ? "accent" : "muted"}`}>{p.label}</span>}
+          </div>
+        ))}
+      </div>
+      {items.length > 1 && <span className={`t-mono-cap muted ${s.swipe}`} aria-hidden>Swipe →</span>}
+      {note && <figcaption className="t-caption muted">{note}</figcaption>}
+    </figure>
   );
 }
