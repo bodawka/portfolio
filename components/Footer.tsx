@@ -1,11 +1,11 @@
 import { contact } from "@/lib/site";
 import s from "./Footer.module.css";
 
-export default function Footer({ n = "04" }: { n?: string }) {
+export default function Footer({ n = "04" }: { n?: string | null }) {
   return (
     <footer id="contact" className={`wrap ${s.footer}`}>
       <div className="split">
-        <p className="label"><b>{n}</b>Contact</p>
+        <p className="label">{n && <b>{n}</b>}Contact</p>
         <div className={s.text}>
           <h2 className="t-display-l">Let&apos;s talk about your <span className="serif accent">product.</span></h2>
           <div className={s.contacts}>
