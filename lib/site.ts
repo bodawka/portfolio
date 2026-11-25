@@ -3,7 +3,7 @@ export const contact = {
   phone: "+420 724 358 028",
   whatsapp: "https://wa.me/420724358028",
   linkedin: "https://www.linkedin.com/in/bodawka/",
-  cv: "#", // TODO: Google Drive PDF link
+  cv: "https://drive.google.com/file/d/1yVKX0KioqEFZJV9g8sjhjeiEFAziCP03/view",
 };
 
 export type CaseCard = {
